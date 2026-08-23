@@ -1,0 +1,64 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>arabic-fold — contract tests</title>
+<style>
+  body{font:14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;
+       max-width:60rem;margin:2rem auto;padding:0 1rem;background:#faf7f1;color:#2b2721}
+  h1{font-size:1.2rem} h2{font-size:1rem;margin:1.5rem 0 .4rem}
+  .pass{color:#2e6b3e} .fail{color:#a3272b;font-weight:700}
+  table{border-collapse:collapse;width:100%} td{padding:.15rem .5rem;vertical-align:top}
+  td.ar{font-size:1.15rem;direction:rtl;text-align:right;white-space:nowrap}
+  .note{color:#6b6459}
+  #summary{margin-top:1.5rem;padding:.75rem 1rem;border-radius:4px;font-weight:700}
+  .ok{background:#e6f0e6;color:#2e6b3e} .bad{background:#f6e3e3;color:#a3272b}
+</style>
+<h1>arabic-fold — contract tests</h1>
+<p class="note">
+  The JavaScript in <code>fold.js</code> checked against <code>../pairs.json</code> —
+  the same file <code>test_fold.py</code> checks the Python against. That shared file
+  is what stops the two implementations drifting apart.
+</p>
+<p class="note">
+  Needs to be served, not opened from disk (<code>fetch</code> of the JSON is blocked
+  on <code>file://</code>): <code>python3 -m http.server</code> from the repo root,
+  then open <code>/demo/test.html</code>.
+</p>
+<div id="out"></div>
+<div id="summary"></div>
+
+<script type="module">
+import { indexText, searchText } from "./fold.js";
+
+const out = document.getElementById("out");
+let failed = 0, total = 0;
+
+const esc = (s) => String(s).replace(/[<&]/g, c => ({ "<": "&lt;", "&": "&amp;" }[c]));
+
+function section(title, cases, fn) {
+  const rows = cases.map(c => {
+    const got = fn(c.in);
+    const ok = got === c.out;
+    total++; if (!ok) failed++;
+    return `<tr>
+      <td class="${ok ? "pass" : "fail"}">${ok ? "PASS" : "FAIL"}</td>
+      <td class="ar">${esc(c.in) || "<em>(empty)</em>"}</td>
+      <td class="ar">→ ${esc(got) || "<em>(empty)</em>"}</td>
+      ${ok ? "" : `<td class="fail">want ${esc(c.out)}</td>`}
+      <td class="note">${esc(c.note)}</td>
+    </tr>`;
+  }).join("");
+  out.insertAdjacentHTML("beforeend", `<h2>${title}</h2><table>${rows}</table>`);
+}
+
+const P = await (await fetch("../pairs.json")).json();
+
+section("fold_ar", P.fold_ar, indexText);
+section("fold_latin", P.fold_latin, indexText);
+section("index and search must agree",
+  [...P.fold_ar, ...P.fold_latin].map(c => ({ in: c.in, out: indexText(c.in), note: c.note })),
+  searchText);
+
+const s = document.getElementById("summary");
+s.className = failed ? "bad" : "ok";
+s.textContent = failed ? `${failed} of ${total} FAILED` : `all ${total} passed`;
+</script>

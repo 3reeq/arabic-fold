@@ -1,0 +1,57 @@
+{
+  "_comment": [
+    "THE CONTRACT. Every implementation of this fold — Python, JavaScript,",
+    "Swift, anything added later — must reproduce this table exactly.",
+    "Tests read this file rather than hardcoding cases, so the implementations",
+    "cannot drift apart quietly. Drift here fails a test; drift in the wild",
+    "returns zero search results with no error, which is much worse."
+  ],
+
+  "fold_ar": [
+    { "in": "قهوة",      "out": "قهوه",     "note": "ta marbuta -> ha" },
+    { "in": "صيدلية",    "out": "صيدليه",   "note": "ta marbuta -> ha" },
+    { "in": "مقهى",      "out": "مقهي",     "note": "alef maqsura -> ya" },
+    { "in": "مستشفى",    "out": "مستشفي",   "note": "alef maqsura -> ya" },
+    { "in": "أسواق",     "out": "اسواق",    "note": "hamza above alef -> bare alef" },
+    { "in": "إدارة",     "out": "اداره",    "note": "hamza below alef, and ta marbuta" },
+    { "in": "آثار",      "out": "اثار",     "note": "madda above alef -> bare alef" },
+    { "in": "مؤسسة",     "out": "موسسه",    "note": "hamza on waw -> waw, and ta marbuta" },
+    { "in": "بئر",       "out": "بير",      "note": "hamza on ya -> ya" },
+    { "in": "مكتـــبة",  "out": "مكتبه",    "note": "tatweel stripped, and ta marbuta" },
+    { "in": "مَكْتَبَة",     "out": "مكتبه",    "note": "harakat stripped, and ta marbuta" },
+    { "in": "مطعم",      "out": "مطعم",     "note": "NO-OP. Nothing foldable. This is the word that HIDES the bug: it matches whether or not you fold, so a spot check landing on it makes a half-folded pipeline look correct. Keep it in the table." },
+    { "in": "الرياض",    "out": "الرياض",   "note": "NO-OP. Nothing foldable." },
+    { "in": "",          "out": "",         "note": "empty in, empty out" }
+  ],
+
+  "fold_latin": [
+    { "in": "Café",      "out": "cafe",     "note": "accent stripped, lowercased" },
+    { "in": "CAFÉ",      "out": "cafe",     "note": "same term, any case" },
+    { "in": "Dunkin'",   "out": "dunkin",   "note": "punctuation dropped" },
+    { "in": "Al-Nakheel","out": "al nakheel","note": "hyphen becomes a space" },
+    { "in": "  spaced  out  ", "out": "spaced out", "note": "whitespace collapsed and trimmed" },
+    { "in": "restaurant","out": "restaurant","note": "NO-OP. Already folded." }
+  ],
+
+  "_search_demo": {
+    "_comment": "The five records and nine queries behind the 5/9 · 5/9 · 9/9 result in the README. Invented names — nothing copied from any licensed dataset.",
+    "records": [
+      { "text": "صيدلية الدواء", "gloss": "saydaliyyat al-dawa  [pharmacy, ends ta-marbuta]" },
+      { "text": "مقهى الشرق",    "gloss": "maqha al-sharq       [cafe, ends alef-maqsura]" },
+      { "text": "قهوة الصباح",   "gloss": "qahwat al-sabah      [coffee, ends ta-marbuta]" },
+      { "text": "مطعم البيك",    "gloss": "mat'am al-baik       [restaurant, nothing foldable]" },
+      { "text": "أسواق العثيم",  "gloss": "aswaq al-othaim      [market, starts hamza-alef]" }
+    ],
+    "queries": [
+      { "text": "صيدليه", "gloss": "saydaliyya  plain ha      (folded spelling)" },
+      { "text": "صيدلية", "gloss": "saydaliyya  ta-marbuta    (as the data has it)" },
+      { "text": "مقهي",   "gloss": "maqha       plain ya      (folded spelling)" },
+      { "text": "مقهى",   "gloss": "maqha       alef-maqsura  (as the data has it)" },
+      { "text": "قهوه",   "gloss": "qahwa       plain ha      (folded spelling)" },
+      { "text": "قهوة",   "gloss": "qahwa       ta-marbuta    (as the data has it)" },
+      { "text": "اسواق",  "gloss": "aswaq       no hamza      (folded spelling)" },
+      { "text": "أسواق",  "gloss": "aswaq       hamza-alef    (as the data has it)" },
+      { "text": "مطعم",   "gloss": "mat'am      nothing foldable — matches either way" }
+    ]
+  }
+}
