@@ -6,6 +6,12 @@
 //
 // Same rule as the Python: no bare fold() is exported. Folding the index alone
 // does not fix anything — it changes which half of your users get no results.
+//
+// THIS FILE IS COPIED to the 3reeq site as arabic-fold/fold.js for the live demo.
+// The two must stay byte-identical — a page demonstrating that copies drift should
+// not be served by a drifted copy. Check it:
+//
+//     diff site/arabic-fold/fold.js arabic-fold/demo/fold.js
 
 const TATWEEL = /ـ/g;                    // kashida — decoration, no meaning
 const HARAKAT = /[ً-ٰ]/g;           // short-vowel marks
