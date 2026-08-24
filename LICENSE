@@ -1,30 +1,29 @@
-Copyright (c) 2026 3reeq. All rights reserved.
+MIT License
 
-This is not open source software.
+Copyright (c) 2026 3reeq
 
-Everything in this repository — the code, the tests, the demo, and the text —
-is protected by copyright and is NOT licensed for reuse by default. Being able
-to read something does not make it free to use. A public repository must serve
-its contents in order to be readable; that grants no licence.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-ASKING
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-Permission is often given, and costs nothing to request. Write to
-contact@3reeq.com and say what you want to use and where.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-Terms are set per item, and some work carries or will carry more permissive
-terms. Where an item says nothing, assume all rights reserved. The canonical
-statement of terms is https://3reeq.com/rights — where this file and that page
-differ, that page is authoritative.
 
-GITHUB
+TRADEMARKS — not covered by the licence above
 
-Viewing and forking this repository within GitHub are permitted by GitHub's
-Terms of Service, which you accepted with them, not with us. Nothing in that
-grants any right to use this code outside GitHub, in your own project, or in
-anything you ship.
-
-TRADEMARKS
-
-The name "3reeq", the wordmark and the shurfa logomark are brand identity and
-are never licensed for reuse. Do not use them to label work that is not ours.
+An MIT licence covers copyright, not trademarks, and grants none here. The name
+"3reeq", the wordmark and the shurfa logomark are brand identity and are never
+licensed for reuse. Use the code freely; do not use the marks to label work that
+is not ours.

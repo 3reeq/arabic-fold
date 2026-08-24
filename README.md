@@ -92,14 +92,14 @@ it.
 Names come mixed. `index_text` routes by script, so accents and case are folded
 the same way on the Latin side — `Café` and `CAFE` are one term.
 
-## Rights
+## Licence
 
-© 2026 3reeq. All rights reserved — this is not open source, and being able to
-read the code does not make it free to use.
+**MIT.** Use it, ship it, sell what you build with it. See `LICENSE`.
 
-**Permission is often given, and costs nothing to request.** Say what you want
-to use and where: <contact@3reeq.com>. Terms are set per item and may be
-loosened later; the canonical statement is <https://3reeq.com/rights>.
+It is permissive because the problem is not a competitive advantage — an Arabic
+search box that returns nothing is a bug the whole ecosystem has, and a library
+nobody may use fixes none of it.
 
-Viewing and forking within GitHub are granted by GitHub's Terms of Service and
-are not a licence from us for anything beyond that.
+The MIT grant covers the code. It does not cover trademarks: the name **3reeq**,
+the wordmark and the shurfa logomark are brand identity and are not licensed.
+Other 3reeq work sets its terms per item — see <https://3reeq.com/rights>.
