@@ -21,6 +21,7 @@
     { "in": "مَكْتَبَة",     "out": "مكتبه",    "note": "harakat stripped, and ta marbuta" },
     { "in": "مطعم",      "out": "مطعم",     "note": "NO-OP. Nothing foldable. This is the word that HIDES the bug: it matches whether or not you fold, so a spot check landing on it makes a half-folded pipeline look correct. Keep it in the table." },
     { "in": "الرياض",    "out": "الرياض",   "note": "NO-OP. Nothing foldable." },
+    { "in": "بَيت ١٢", "out": "بيت ١٢", "note": "harakat stripped, Arabic-Indic digits (U+0660-0669) kept" },
     { "in": "",          "out": "",         "note": "empty in, empty out" }
   ],
 

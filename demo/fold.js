@@ -14,7 +14,7 @@
 //     diff site/arabic-fold/fold.js arabic-fold/demo/fold.js
 
 const TATWEEL = /ـ/g;                    // kashida — decoration, no meaning
-const HARAKAT = /[ً-ٰ]/g;           // short-vowel marks
+const HARAKAT = /[ً-ٰٟ]/g;           // short-vowel marks
 const ARABIC_CHAR = /[؀-ۿ]/;
 const PUNCT = /[^\p{L}\p{N}_\s؀-ۿ]+/gu;
 const WS = /\s+/g;
